@@ -1,20 +1,36 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text>Yo, welcome to NAPP</Text>
+      <Text>Here's a picture of me.</Text>
+      <Image style={styles.mediumImage} source={require('./assets/nusaiba_matcha.jpg')}/>
+      <Text>Here's a random pic</Text>
+      <Image source={{
+        width: 200,
+        height: 200,
+        uri: "https://picsum.photos/200/300"}}/>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f4ae74',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  smallImage: {
+    width: 50,
+    height: 50
+  },
+  mediumImage: {
+    width: 150,
+    height: 150
+  }
 });
