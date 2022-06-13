@@ -27,8 +27,11 @@ export default function App() {
           backgroundColor ="green"
           onPress={handleImagePress}>
           </Button>
-          <View style={Bar.bar}>
-            <Button title="Hi"></Button>
+          <View style={[Bar.card, Bar.shadowProp]}>
+            <Button title="Hii"></Button>
+          </View>
+          <View style={Bar.shadowProp}>
+            <Button style={Bar.bar} title="Hi"></Button>
           </View>
     </View>
   );
