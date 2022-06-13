@@ -1,5 +1,6 @@
 import React, { useState }  from 'react';
 import { Alert, Image, View, StyleSheet, Text, TouchableHighlight, Button } from 'react-native';
+import { Bar } from './styles/styles'
 
 export default function App() {
   const handleImagePress = () => Alert.alert("Image Press", "You pressed the image.", 
@@ -9,7 +10,7 @@ export default function App() {
   ])
   return (
     <View style={styles.container}>
-      <Text> Yo, welcome to Nappy and relaly long text</Text>
+      <Text> Yo, welcome to Napp</Text>
       <Text>Here's a picture of me.</Text>
       <Image style={styles.mediumImage} source={require('./assets/nusaiba_matcha.jpg')}/>
       <Text>Here's a random pic</Text>
@@ -26,6 +27,9 @@ export default function App() {
           backgroundColor ="green"
           onPress={handleImagePress}>
           </Button>
+          <View style={Bar.bar}>
+            <Button title="Hi"></Button>
+          </View>
     </View>
   );
 }
