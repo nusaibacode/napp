@@ -1,18 +1,27 @@
-import React from 'react';
-import { Image, SafeAreaView, StyleSheet, Text } from 'react-native';
+import React, { useState }  from 'react';
+import { Image, View, StyleSheet, Text, TouchableHighlight, Button } from 'react-native';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Text> Yo, welcome to Nappy and relaly long text</Text>
       <Text>Here's a picture of me.</Text>
       <Image style={styles.mediumImage} source={require('./assets/nusaiba_matcha.jpg')}/>
       <Text>Here's a random pic</Text>
-      <Image source={{
-        width: 200,
-        height: 200,
-        uri: "https://picsum.photos/200/300"}}/>
-    </SafeAreaView>
+      <TouchableHighlight
+      onPress={()=> console.log('Image pressed.')}>
+        <Image source={{
+          width: 200,
+          height: 200,
+          uri: "https://picsum.photos/200/300"}}/>
+      </TouchableHighlight>
+          <Button
+          color="dodgerblue"
+          title= "Click here"
+          backgroundColor ="green"
+          onPress={()=> console.log("Button pressed.")}>
+          </Button>
+    </View>
   );
 }
 

@@ -7,7 +7,7 @@
     "icon": "./assets/watermelon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/watermelon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
