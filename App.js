@@ -1,12 +1,10 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text } from 'react-native';
 
 export default function App() {
-
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Yo, welcome to NAPP</Text>
+      <Text> Yo, welcome to Nappy and relaly long text</Text>
       <Text>Here's a picture of me.</Text>
       <Image style={styles.mediumImage} source={require('./assets/nusaiba_matcha.jpg')}/>
       <Text>Here's a random pic</Text>
