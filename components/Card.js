@@ -9,8 +9,10 @@ export class Card extends React.Component {
       const openingCardStyle = {bottom: 65, position: 'absolute', height: 550}
 
       return (
+
         <View style={[container.card, container.shadowProp, openingCardStyle]}>
           </View>
+
   
       );
     }

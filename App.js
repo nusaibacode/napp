@@ -8,12 +8,7 @@ export default function App() {
   return (
     <View style={container.container}>
       <ImageBackground style={container.container} source={require("./assets/gradient_dark_orange_navy.jpeg")}>
-
-        <Card>
-          <Text style={{color: 'black'}}>Hello</Text>
-        </Card>
-
-
+        <Card></Card>
           </ImageBackground>
     </View>
   );
