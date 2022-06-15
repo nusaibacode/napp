@@ -1,55 +1,21 @@
-import React, { useState }  from 'react';
-import { Alert, Image, View, StyleSheet, Text, TouchableHighlight, Button } from 'react-native';
-import { Bar } from './styles/styles'
+import React, { useState, Component }  from 'react';
+import { Alert, Image, View, StyleSheet, Text, TouchableHighlight, ImageBackground, Button } from 'react-native';
+import { Card } from './components/Card';
+import MyComponent from './components/MyComponent';
+import { container, deviceWidth } from './styles/styles'
 
 export default function App() {
-  const handleImagePress = () => Alert.alert("Image Press", "You pressed the image.", 
-  [
-    {text: 'Yes', onPress:() => console.log('Yes image button pressed')}, 
-    {text:'No', onPress:()=> console.log('No image button pressed')}
-  ])
   return (
-    <View style={styles.container}>
-      <Text> Yo, welcome to Napp</Text>
-      <Text>Here's a picture of me.</Text>
-      <Image style={styles.mediumImage} source={require('./assets/nusaiba_matcha.jpg')}/>
-      <Text>Here's a random pic</Text>
-      <TouchableHighlight
-      onPress={handleImagePress}>
-        <Image source={{
-          width: 200,
-          height: 200,
-          uri: "https://picsum.photos/200/300"}}/>
-      </TouchableHighlight>
-          <Button
-          color="dodgerblue"
-          title= "Click here"
-          backgroundColor ="green"
-          onPress={handleImagePress}>
-          </Button>
-          <View style={[Bar.card, Bar.shadowProp]}>
-            <Button title="Hii"></Button>
-          </View>
-          <View style={Bar.shadowProp}>
-            <Button style={Bar.bar} title="Hi"></Button>
-          </View>
+    <View style={container.container}>
+      <ImageBackground style={container.container} source={require("./assets/gradient_dark_orange_navy.jpeg")}>
+
+        <Card>
+          <Text style={{color: 'black'}}>Hello</Text>
+        </Card>
+
+
+          </ImageBackground>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f4ae74',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  smallImage: {
-    width: 50,
-    height: 50
-  },
-  mediumImage: {
-    width: 150,
-    height: 150
-  }
-});
