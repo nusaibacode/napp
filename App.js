@@ -1,40 +1,20 @@
-import React, { useState }  from 'react';
-import { Alert, Image, View, StyleSheet, Text, TouchableHighlight, Button } from 'react-native';
-import { Bar } from './styles/styles'
+import React from 'react';
+import { render } from 'react-dom';
+import { Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { ImageBackground, Dimensions, Button } from 'react-native';
+import {DisplayCard} from './Components/DisplayCard'
+
+const deviceWidth = Dimensions.get('window').width
 
 export default function App() {
-  const handleImagePress = () => Alert.alert("Image Press", "You pressed the image.", 
-  [
-    {text: 'Yes', onPress:() => console.log('Yes image button pressed')}, 
-    {text:'No', onPress:()=> console.log('No image button pressed')}
-  ])
   return (
-    <View style={styles.container}>
-      <Text> Yo, welcome to Napp</Text>
-      <Text>Here's a picture of me.</Text>
-      <Image style={styles.mediumImage} source={require('./assets/nusaiba_matcha.jpg')}/>
-      <Text>Here's a random pic</Text>
-      <TouchableHighlight
-      onPress={handleImagePress}>
-        <Image source={{
-          width: 200,
-          height: 200,
-          uri: "https://picsum.photos/200/300"}}/>
-      </TouchableHighlight>
-          <Button
-          color="dodgerblue"
-          title= "Click here"
-          backgroundColor ="green"
-          onPress={handleImagePress}>
-          </Button>
-          <View style={[Bar.card, Bar.shadowProp]}>
-            <Button title="Hii"></Button>
-          </View>
-          <View style={Bar.shadowProp}>
-            <Button style={Bar.bar} title="Hi"></Button>
-          </View>
-    </View>
-  );
+
+    <ImageBackground style={{flex: 1}} source={require("./Assets/gradient_dark_orange_navy.png")}>
+    <DisplayCard title='MY TITLE!'>
+      <Button title='Hi!'></Button>
+    </DisplayCard>
+    </ImageBackground>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -51,5 +31,40 @@ const styles = StyleSheet.create({
   mediumImage: {
     width: 150,
     height: 150
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#f4ae74',
+    justifyContent: 'center',
+  },    
+bar: {
+    position: 'absolute',
+    bottom: 0,
+    width: "100%",
+    height: "10%",
+    backgroundColor: '#FFC107',
+    borderRadius: 9,
+},
+card: {
+    width: deviceWidth - 32,
+    marginHorizontal: 16,
+    backgroundColor: 'lightgray',
+    height: deviceWidth * 1,
+    borderRadius: 35,
+  },
+shadowProp: {
+    shadowRadius: 12,
+    shadowOpacity: 0.8,
+    shadowColor: "#757575",
+    shadowOffset: {
+        width: 0,
+        height: 3,
+    }
+  },
+  openingCardStyle:{
+    bottom: 65, 
+    position: 'absolute', 
+    height: 550
   }
+  
 });
