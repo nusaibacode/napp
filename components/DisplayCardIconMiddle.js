@@ -2,18 +2,25 @@ import React from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, View, Button, Alert } from 'react-native';
 import { ImageBackground, Dimensions } from 'react-native';
 import {ThreeColumnVertical} from './ThreeColumnVertical'
+import {TwoColumnIconLeft} from './TwoColumnIconLeft'
+
 
 const deviceWidth = Dimensions.get('window').width
 
-export function DisplayCard (props) {
+export function DisplayCardIconMiddle (props) {
   return (
     <View style={[styles.card, styles.shadowProp, styles.openingCardStyle]}>
-      <ThreeColumnVertical 
+      <Text style={[{ backgroundColor: "red", flex: .25 }]}></Text>
+
+      <TwoColumnIconLeft
       title={props.title}
       subtitle={props.subtitle}
       body={props.body} 
       >
-      </ThreeColumnVertical>
+      </TwoColumnIconLeft>
+
+      <Text style={[{ backgroundColor: "red", flex: .25 }]}></Text>
+
 
       <Button
         title="Press me"

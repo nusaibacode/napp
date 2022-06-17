@@ -3,7 +3,10 @@ import { render } from 'react-dom';
 import { Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import { ImageBackground, Dimensions, Button } from 'react-native';
 import {DisplayCard} from './Components/DisplayCard'
+import {DisplayCardIconMiddle} from './Components/DisplayCardIconMiddle'
+
 import {ThreeColumnVertical} from './Components/ThreeColumnVertical'
+import {TwoColumnIconLeft} from './Components/TwoColumnIconLeft';
 
 
 
@@ -12,13 +15,14 @@ const deviceWidth = Dimensions.get('window').width
 export default function App() {
   return (
     <ImageBackground style={{flex: 1}} source={require("./Assets/gradient_dark_orange_navy.png")}>
-    <DisplayCard 
-    title="Profile Makeover"
+    <DisplayCardIconMiddle
+    title="Profile Makeover."
     subtitle="Let our experts review your profile to make sure you feel excited by your matches. We'll show you your greenflags."
     body = "Hi"
     >
-      <ThreeColumnVertical/>
-    </DisplayCard>
+    {/* <ThreeColumnVertical/> */}
+    <TwoColumnIconLeft/>
+    </DisplayCardIconMiddle>
     </ImageBackground>
   )
 }
