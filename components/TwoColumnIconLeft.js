@@ -12,25 +12,24 @@ export function TwoColumnIconLeft (props){
   return (
     <View
     style={{
-        flex: .5,
+        flex: 1,
         flexDirection: "column",
-        padding: 30
+        padding: 20
       }}>
         <View
         style={{
             flex: .5,
             flexDirection: "row",
-            padding: 10
         }}
         >
-            <Text style={[{ backgroundColor: "red", flex: .25 }, styles.subTitle]}>{subtitle}</Text>
+            <Image style={{flex: .25}} source={require("./../Assets/watermelon.png")}/>
+            {/* <Text style={[{ backgroundColor: "red", flex: .25 }, styles.subTitle]}>{subtitle}</Text> */}
             <Text style={[{ backgroundColor: "blue", flex: .75}, styles.title]}>{title}</Text>
         </View>
         <View
         style={{
             flex: .5,
             flexDirection: "row",
-            padding: 10
         }}
         >
             <Text style={[{ backgroundColor: "red", flex: .25 }, styles.subTitle]}>{subtitle}</Text>

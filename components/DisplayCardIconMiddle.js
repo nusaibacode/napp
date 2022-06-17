@@ -10,16 +10,17 @@ const deviceWidth = Dimensions.get('window').width
 export function DisplayCardIconMiddle (props) {
   return (
     <View style={[styles.card, styles.shadowProp, styles.openingCardStyle]}>
-      <Text style={[{ backgroundColor: "red", flex: .25 }]}></Text>
+      <Text style={[{ padding: 20, flex: .25 }]}>{props.title}</Text>
 
       <TwoColumnIconLeft
+      style = {[{ padding: 20, flex: .5 }]}
       title={props.title}
       subtitle={props.subtitle}
       body={props.body} 
       >
       </TwoColumnIconLeft>
 
-      <Text style={[{ backgroundColor: "red", flex: .25 }]}></Text>
+      <Text style={[{ padding: 20, backgroundColor: "red", flex: .25 }]}>{props.body}</Text>
 
 
       <Button
