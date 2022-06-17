@@ -1,20 +1,32 @@
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, View, Button, Alert} from 'react-native';
 import { ImageBackground, Dimensions } from 'react-native';
-import {ThreeColumnVertical} from './ThreeColumnVertical'
-
 const deviceWidth = Dimensions.get('window').width
 
-export function DisplayCard (props) {
 
+export function ThreeColumnVertical (props){
   return (
-    <View style={[styles.card, styles.shadowProp, styles.openingCardStyle]}>
-      <ThreeColumnVertical>
-      </ThreeColumnVertical>
-    </View>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: "column",
+        padding: 30
+      }}
+    >
+      <Text style={{ backgroundColor: "blue", flex: 0.3 }}>Title</Text>
 
+      <Text style={{ backgroundColor: "red", flex: 0.5 }}>Subtitle</Text>
+
+      <Text style={{ backgroundColor: "green", flex: 0.5 }}>Body paragraph</Text>
+      <Button
+        title="Press me"
+        onPress={() => Alert.alert('Simple Button pressed')}
+      />    
+      </View>
   );
-}
+};
+
+export default ThreeColumnVertical;
 
 const styles = StyleSheet.create({
     container: {

@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import { ImageBackground, Dimensions, Button } from 'react-native';
 import {DisplayCard} from './Components/DisplayCard'
+import {ThreeColumnVertical} from './Components/ThreeColumnVertical'
+
 
 const deviceWidth = Dimensions.get('window').width
 
@@ -10,8 +12,8 @@ export default function App() {
   return (
 
     <ImageBackground style={{flex: 1}} source={require("./Assets/gradient_dark_orange_navy.png")}>
-    <DisplayCard title='MY TITLE!'>
-      <Button title='Hi!'></Button>
+    <DisplayCard>
+      <ThreeColumnVertical></ThreeColumnVertical>
     </DisplayCard>
     </ImageBackground>
   )
