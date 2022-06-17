@@ -6,20 +6,31 @@ import {DisplayCard} from './Components/DisplayCard'
 import {ThreeColumnVertical} from './Components/ThreeColumnVertical'
 
 
+
 const deviceWidth = Dimensions.get('window').width
 
 export default function App() {
   return (
-
     <ImageBackground style={{flex: 1}} source={require("./Assets/gradient_dark_orange_navy.png")}>
-    <DisplayCard>
-      <ThreeColumnVertical></ThreeColumnVertical>
+    <DisplayCard 
+    title="Profile Makeover"
+    subtitle="Let our experts review your profile to make sure you feel excited by your matches. We'll show you your greenflags."
+    body = "Hi"
+    >
+      <ThreeColumnVertical/>
     </DisplayCard>
     </ImageBackground>
   )
 }
 
 const styles = StyleSheet.create({
+  title: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontFamily: "SF Pro",
+    fontSize: 30
+
+  },   
   container: {
     flex: 1,
     backgroundColor: '#f4ae74',

@@ -5,6 +5,10 @@ const deviceWidth = Dimensions.get('window').width
 
 
 export function ThreeColumnVertical (props){
+  const title = props.title;
+  const subtitle = props.subtitle;
+  const body = props.body;
+
   return (
     <View
       style={{
@@ -13,65 +17,41 @@ export function ThreeColumnVertical (props){
         padding: 30
       }}
     >
-      <Text style={{ backgroundColor: "blue", flex: 0.3 }}>Title</Text>
+      <Text style={[{ backgroundColor: "blue", flex: .25}, styles.title]}>{title}</Text>
 
-      <Text style={{ backgroundColor: "red", flex: 0.5 }}>Subtitle</Text>
+      <Text style={[{ backgroundColor: "red", flex: .5 }, styles.subTitle]}>{subtitle}</Text>
 
-      <Text style={{ backgroundColor: "green", flex: 0.5 }}>Body paragraph</Text>
+      <Text style={[{ backgroundColor: "green", flex: .25}, styles.bodyText]}>{body}</Text>
       <Button
         title="Press me"
         onPress={() => Alert.alert('Simple Button pressed')}
       />    
       </View>
   );
+
 };
 
 export default ThreeColumnVertical;
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#f4ae74',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     title: {
-      alignItems: 'center',
+      textAlign: 'center',
       justifyContent: 'center',
+      fontFamily: "SF Pro",
+      fontSize: 30
+
     },   
-    container: {
-      flex: 1,
-      backgroundColor: '#f4ae74',
+    subTitle: {
+      textAlign: 'center',
       justifyContent: 'center',
-    },    
-  bar: {
-      position: 'absolute',
-      bottom: 0,
-      width: "100%",
-      height: "10%",
-      backgroundColor: '#FFC107',
-      borderRadius: 9,
-  },
-  card: {
-      width: deviceWidth - 32,
-      marginHorizontal: 16,
-      backgroundColor: 'lightgray',
-      height: deviceWidth * 1,
-      borderRadius: 35,
-    },
-  shadowProp: {
-      shadowRadius: 12,
-      shadowOpacity: 0.8,
-      shadowColor: "#757575",
-      shadowOffset: {
-          width: 0,
-          height: 3,
-      }
-    },
-    openingCardStyle:{
-      bottom: 65, 
-      position: 'absolute', 
-      height: 550
-    }
+      fontFamily: "SF Pro",
+      fontSize: 15
+    },  
+    bodyText: {
+      textAlign: 'center',
+      justifyContent: 'center',
+      fontFamily: "SF Pro",
+      fontSize: 15
+    },  
     
   })

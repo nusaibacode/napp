@@ -6,10 +6,13 @@ import {ThreeColumnVertical} from './ThreeColumnVertical'
 const deviceWidth = Dimensions.get('window').width
 
 export function DisplayCard (props) {
-
   return (
     <View style={[styles.card, styles.shadowProp, styles.openingCardStyle]}>
-      <ThreeColumnVertical>
+      <ThreeColumnVertical 
+      title={props.title}
+      subtitle={props.subtitle}
+      body={props.body} 
+      >
       </ThreeColumnVertical>
     </View>
 
