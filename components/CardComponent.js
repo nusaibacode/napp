@@ -8,21 +8,22 @@ const deviceWidth = Dimensions.get('window').width
 function ThreeColumnVertical(props) {
     return (
         <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
-            <Text style={{ backgroundColor: "blue", flex: 0.2 }}>Title</Text>
-            <Text style={{ backgroundColor: "red", flex: 0.6 }}>Body</Text>
-            <Text style={{ backgroundColor: "green", flex: 0.2 }}>Footer</Text>
+            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.body}>{props.body}</Text>
+            <Text style={styles.footer}>{props.footer}</Text>
         </View>
     );
 };
 
 function TwoColumnButton(props) {
+    const buttonText = String(props.buttonText);
     return (
         <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
-            <Text style={styles.title}>Title</Text>
-            <Text style={styles.body}>Body</Text>
+            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.body}>{props.body}</Text>
             <TouchableHighlight
                 style={styles.getStarted}>
-                <Button title="Get Started" color="white"></Button>
+                <Button title={buttonText} color="white"></Button>
             </TouchableHighlight>
         </View >
     );
@@ -31,6 +32,10 @@ function TwoColumnButton(props) {
 export function CardComponent(props) {
 
     const cardContentStructure = props.cardContentStructure
+    const title = props.title;
+    const body = props.body;
+    const footer = props.footer;
+    const buttonText = props.buttonText;
 
     switch (cardContentStructure) {
         case "Column":
@@ -42,7 +47,12 @@ export function CardComponent(props) {
         case "Button":
             return (
                 <View style={[styles.container, styles.shadowProp]}>
-                    <TwoColumnButton></TwoColumnButton>
+                    <TwoColumnButton
+                        title={title}
+                        body={body}
+                        buttonText={buttonText}
+                    >
+                    </TwoColumnButton>
                 </View>
             );
 
@@ -74,16 +84,24 @@ const styles = StyleSheet.create({
         flex: 0.2,
         fontFamily: 'SF Pro',
         fontSize: 30,
-        color: "white",
+        color: "#000000",
         textAlign: 'center',
     },
     body: {
         flex: 0.6,
         fontFamily: 'SF Pro',
         fontSize: 20,
-        color: "white",
+        color: "#000000",
         textAlign: 'center',
     },
+    footer: {
+        flex: 0.2,
+        fontFamily: 'SF Pro',
+        fontSize: 20,
+        color: "#000000",
+        textAlign: 'center',
+    }
+    ,
     getStarted: {
         flex: .1,
         marginTop: 20,
