@@ -1,6 +1,7 @@
 import React from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, View, Button } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, View, Button, Pressable, Alert } from 'react-native';
 import { ImageBackground, Dimensions } from 'react-native';
+import { TouchableHighlight } from 'react-native';
 
 const deviceWidth = Dimensions.get('window').width
 
@@ -17,9 +18,12 @@ function ThreeColumnVertical(props) {
 function TwoColumnButton(props) {
     return (
         <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
-            <Text style={{ backgroundColor: "blue", flex: 0.2 }}>Title</Text>
-            <Text style={{ backgroundColor: "red", flex: 0.6 }}>Body</Text>
-            <Button title="Button!" style={{ flex: 0.2 }}></Button>
+            <Text style={styles.title}>Title</Text>
+            <Text style={styles.body}>Body</Text>
+            <TouchableHighlight
+                style={styles.getStarted}>
+                <Button title="Get Started" color="white"></Button>
+            </TouchableHighlight>
         </View >
     );
 };
@@ -65,6 +69,28 @@ const styles = StyleSheet.create({
             width: 0,
             height: 3,
         }
+    },
+    title: {
+        flex: 0.2,
+        fontFamily: 'SF Pro',
+        fontSize: 30,
+        color: "white",
+        textAlign: 'center',
+    },
+    body: {
+        flex: 0.6,
+        fontFamily: 'SF Pro',
+        fontSize: 20,
+        color: "white",
+        textAlign: 'center',
+    },
+    getStarted: {
+        flex: .1,
+        marginTop: 20,
+        paddingTop: 30,
+        paddingBottom: 20,
+        backgroundColor: '#063970',
+        borderRadius: 20,
     },
 
 })
