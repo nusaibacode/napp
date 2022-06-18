@@ -35,7 +35,8 @@ export function DisplayCardIconMiddle(props) {
 
       <View style={{ flex: .10 }}>
         <Button
-          title="Press me"
+          backgroundColor="Navy"
+          title="GET STARTED >"
           onPress={() => Alert.alert('Simple Button pressed')}
         />
       </View>

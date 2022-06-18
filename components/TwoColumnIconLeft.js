@@ -13,12 +13,12 @@ export function TwoColumnIconLeft(props) {
 
     <View>
       <View style={[{ flexDirection: "row" }, styles.container]}>
-        <View style={[{ flex: .25 }, styles.imageContainer, styles.content]}><Image style={[styles.imageStyle]} source={require("./../Assets/watermelon.png")} /></View>
-        <View style={[{ backgroundColor: 'pink', flex: .75, }, styles.content]}><Text style={[{ padding: 25, textAlign: 'left', justifyContent: "center" }, styles.subTitle]}>{title}</Text></View>
+        <View style={[{ flex: .25 }, styles.imageContainer, styles.content, { paddingTop: 25, paddingLeft: 20, justifyContent: 'flex-right' }]}><Image style={[styles.imageStyle, { padding: 0 }]} source={require("./../Assets/icon_send_plane.png")} /></View>
+        <View style={[{ flex: .75, }, styles.content]}><Text style={[{ padding: 25, textAlign: 'left', justifyContent: "center" }, styles.subTitle, { paddingLeft: 0 }]}>Show us your content</Text></View>
       </View>
-      <View style={[{ flexDirection: "row" }, styles.container]}>
-        <View style={[{ flex: .25 }, styles.imageContainer, styles.content]}><Image style={[styles.imageStyle]} source={require("./../Assets/watermelon.png")} /></View>
-        <View style={[{ backgroundColor: 'pink', flex: .75, }, styles.content]}><Text style={[{ padding: 20, textAlign: 'left', justifyContent: "center" }, styles.subTitle]}>{title}</Text></View>
+      <View style={[{ flexDirection: "row" }, styles.container, { paddingBottom: 0, paddingTop: 30 }]}>
+        <View style={[{ flex: .25 }, styles.imageContainer, styles.content, { paddingTop: 25, paddingLeft: 20, justifyContent: 'flex-right' }]}><Image style={[styles.imageStyle, { padding: 0 }]} source={require("./../Assets/icon_check_double.png")} /></View>
+        <View style={[{ flex: .75, }, styles.content]}><Text style={[{ padding: 25, textAlign: 'left', justifyContent: "center" }, styles.subTitle, { paddingLeft: 0 }]}>Get your review</Text></View>
       </View>
     </View>
   );
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
 
   },
   imageStyle: {
-    width: '100%',
-    height: '100%',
+    width: '50%',
+    height: '50%',
     resizeMode: 'cover',
   },
   subTitle: {
