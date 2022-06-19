@@ -14,7 +14,7 @@ export default function App() {
     <View style={{ flex: 1 }}>
       <ImageBackground style={{ flex: 1 }} source={require("./Assets/gradient_dark_orange_navy.png")}>
         <CardComponent
-          cardContentStructure="Button"
+          cardContentStructure="Bento"
           title="Profile Makeover"
           body="Want exciting matches? Need exciting profile."
           buttonText="Get Started"

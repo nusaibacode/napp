@@ -29,6 +29,44 @@ function TwoColumnButton(props) {
     );
 };
 
+
+
+function BentonIconLeft(props) {
+    const bullet1 = props.bullet1
+    const bullet2 = props.bullet2
+
+    return (
+        <View style={{ flexDirection: "column", padding: 30 }}>
+
+            <View style={{ flexDirection: "row", marginBottom: 20 }}>
+                <Image source={require(".././Assets/send_plane_icon.png")} style={{ height: 30, width: 30, marginRight: 20, }} />
+                <Text style={{ fontSize: 17 }}> Show us your profile</Text>
+            </View>
+
+            <View style={{ flexDirection: "row", marginBottom: 20, fontSize: 35 }}>
+                <Image source={require(".././Assets/double_check_icon.png")} style={{ height: 30, width: 30, marginRight: 20 }} />
+                <Text style={{ fontSize: 17 }}> Get your review</Text>
+            </View>
+        </View>
+
+    )
+}
+
+function ColumnBentoIconButton(props) {
+    const buttonText = String(props.buttonText);
+    return (
+        <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
+            <Text style={[styles.title]}>{props.title}</Text>
+            <Text style={[styles.body]}>{props.body}</Text>
+            <View><BentonIconLeft></BentonIconLeft></View>
+            <TouchableHighlight
+                style={[styles.getStarted]}>
+                <Button title={buttonText} color="white"></Button>
+            </TouchableHighlight>
+        </View >
+    );
+};
+
 export function CardComponent(props) {
 
     const cardContentStructure = props.cardContentStructure
@@ -41,7 +79,11 @@ export function CardComponent(props) {
         case "Column":
             return (
                 <View style={[styles.container, styles.shadowProp]}>
-                    <ThreeColumnVertical></ThreeColumnVertical>
+                    <ThreeColumnVertical>
+                        title={title}
+                        body={body}
+                        footer={footer}
+                    </ThreeColumnVertical>
                 </View>
             );
         case "Button":
@@ -55,6 +97,17 @@ export function CardComponent(props) {
                     </TwoColumnButton>
                 </View>
             );
+        case "Bento":
+            return (
+                <View style={[styles.container, styles.shadowProp]}>
+                    <ColumnBentoIconButton
+                        title={title}
+                        body={body}
+                        buttonText={buttonText}
+                    >
+                    </ColumnBentoIconButton>
+                </View>
+            )
 
     }
 
@@ -83,6 +136,7 @@ const styles = StyleSheet.create({
     title: {
         flex: 0.2,
         fontFamily: 'SF Pro',
+        fontWeight: 'bold',
         fontSize: 30,
         color: "#000000",
         textAlign: 'center',
@@ -103,10 +157,11 @@ const styles = StyleSheet.create({
     }
     ,
     getStarted: {
-        flex: .1,
-        marginTop: 20,
-        paddingTop: 30,
-        paddingBottom: 20,
+        flex: .15,
+        paddingTop: 0,
+        paddingBottom: 10,
+        paddingTop: 10,
+        marginBottom: 0,
         backgroundColor: '#063970',
         borderRadius: 20,
     },
