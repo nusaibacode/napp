@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { ImageBackground, Dimensions, Button } from 'react-native';
-import { CardComponent } from './Components/CardComponent';
+import { CardComponent } from './Components/CardStructure';
 import { DisplayCard } from './Components/DisplayCard'
 
 
@@ -17,6 +17,8 @@ export default function App() {
           cardContentStructure="Bento"
           title="Profile Makeover"
           body="Want exciting matches? Need exciting profile."
+          bullet1="Show us your content"
+          bullet2="Get your review"
           buttonText="Get Started"
         >
         </CardComponent>

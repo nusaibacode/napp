@@ -30,7 +30,6 @@ function TwoColumnButton(props) {
 };
 
 
-
 function BentonIconLeft(props) {
     const bullet1 = props.bullet1
     const bullet2 = props.bullet2
@@ -40,12 +39,12 @@ function BentonIconLeft(props) {
 
             <View style={{ flexDirection: "row", marginBottom: 20 }}>
                 <Image source={require(".././Assets/send_plane_icon.png")} style={{ height: 30, width: 30, marginRight: 20, }} />
-                <Text style={{ fontSize: 17 }}> Show us your profile</Text>
+                <Text style={{ fontSize: 17 }}> {bullet1}</Text>
             </View>
 
             <View style={{ flexDirection: "row", marginBottom: 20, fontSize: 35 }}>
                 <Image source={require(".././Assets/double_check_icon.png")} style={{ height: 30, width: 30, marginRight: 20 }} />
-                <Text style={{ fontSize: 17 }}> Get your review</Text>
+                <Text style={{ fontSize: 17 }}> {bullet2}</Text>
             </View>
         </View>
 
@@ -54,11 +53,13 @@ function BentonIconLeft(props) {
 
 function ColumnBentoIconButton(props) {
     const buttonText = String(props.buttonText);
+    const bullet1 = props.bullet1
+    const bullet2 = props.bullet2
     return (
         <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
             <Text style={[styles.title]}>{props.title}</Text>
             <Text style={[styles.body]}>{props.body}</Text>
-            <View><BentonIconLeft></BentonIconLeft></View>
+            <View><BentonIconLeft bullet1={bullet1} bullet2={bullet2}></BentonIconLeft></View>
             <TouchableHighlight
                 style={[styles.getStarted]}>
                 <Button title={buttonText} color="white"></Button>
@@ -73,6 +74,8 @@ export function CardComponent(props) {
     const title = props.title;
     const body = props.body;
     const footer = props.footer;
+    const bullet1 = props.bullet1
+    const bullet2 = props.bullet2
     const buttonText = props.buttonText;
 
     switch (cardContentStructure) {
@@ -103,14 +106,14 @@ export function CardComponent(props) {
                     <ColumnBentoIconButton
                         title={title}
                         body={body}
+                        bullet1={bullet1}
+                        bullet2={bullet2}
                         buttonText={buttonText}
                     >
                     </ColumnBentoIconButton>
                 </View>
             )
-
     }
-
 }
 
 const styles = StyleSheet.create({
