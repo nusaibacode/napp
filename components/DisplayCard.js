@@ -11,10 +11,7 @@ export function DisplayCard(props) {
       <ThreeColumnVertical>
 
       </ThreeColumnVertical>
-      <Button
-        title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
-      />
+
     </View>
 
   );

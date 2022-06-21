@@ -1,31 +1,66 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { render } from 'react-dom';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { ImageBackground, Dimensions, Button } from 'react-native';
 import { CardComponent } from './Components/CardStructure';
 import { DisplayCard } from './Components/DisplayCard'
+import OpeningScreen from './Screens/OpeningScreen'
+import SignUpScreen from './Screens/SignUpScreen'
+
 
 
 
 const deviceWidth = Dimensions.get('window').width
 
+// function OpeningScreen2({ navigation }) {
+
+//   return (
+//     <View style={{ flex: 1 }}>
+//       <ImageBackground style={{ flex: 1 }} source={require("./Assets/gradient_dark_orange_navy.png")}>
+//         <CardComponent
+//           cardContentStructure="Bento"
+//           title="Profile Makeover"
+//           body="Want exciting matches? Need exciting profile."
+//           bullet1="Show us your content"
+//           bullet2="Get your review"
+//           buttonText="Get Started"
+//         >
+//         </CardComponent>
+//         <View style={{ marginTop: 60 }}>
+//           <Button
+//             title="Signup"
+//             onPress={() => navigation.navigate("Sign Up")}
+//           />
+//         </View>
+//       </ImageBackground>
+//     </View>
+//   )
+// }
+
+// function SignUpScreen() {
+//   return (
+//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//       <Text>Sign up screen</Text>
+//     </View>
+//   );
+// }
+
+
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
-    <View style={{ flex: 1 }}>
-      <ImageBackground style={{ flex: 1 }} source={require("./Assets/gradient_dark_orange_navy.png")}>
-        <CardComponent
-          cardContentStructure="Bento"
-          title="Profile Makeover"
-          body="Want exciting matches? Need exciting profile."
-          bullet1="Show us your content"
-          bullet2="Get your review"
-          buttonText="Get Started"
-        >
-        </CardComponent>
-      </ImageBackground>
-    </View>
-  )
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="OpeningScreen">
+        <Stack.Screen name="OpeningScreen" component={OpeningScreen} />
+        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
+
 
 const styles = StyleSheet.create({
   container: {

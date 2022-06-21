@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image, SafeAreaView, StyleSheet, Text, View, Button, Pressable, Alert } from 'react-native';
 import { ImageBackground, Dimensions } from 'react-native';
 import { TouchableHighlight } from 'react-native';
@@ -53,8 +55,10 @@ function BentonIconLeft(props) {
 
 function ColumnBentoIconButton(props) {
     const buttonText = String(props.buttonText);
+    const buttonFunction = props.buttonFunction
     const bullet1 = props.bullet1
     const bullet2 = props.bullet2
+
     return (
         <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
             <Text style={[styles.title]}>{props.title}</Text>
@@ -62,7 +66,7 @@ function ColumnBentoIconButton(props) {
             <View><BentonIconLeft bullet1={bullet1} bullet2={bullet2}></BentonIconLeft></View>
             <TouchableHighlight
                 style={[styles.getStarted]}>
-                <Button title={buttonText} color="white"></Button>
+                <Button title={buttonText} color="white" onPress={buttonFunction}></Button>
             </TouchableHighlight>
         </View >
     );
@@ -77,6 +81,7 @@ export function CardComponent(props) {
     const bullet1 = props.bullet1
     const bullet2 = props.bullet2
     const buttonText = props.buttonText;
+    const buttonFunction = props.buttonFunction;
 
     switch (cardContentStructure) {
         case "Column":
@@ -109,6 +114,7 @@ export function CardComponent(props) {
                         bullet1={bullet1}
                         bullet2={bullet2}
                         buttonText={buttonText}
+                        buttonFunction={buttonFunction}
                     >
                     </ColumnBentoIconButton>
                 </View>
