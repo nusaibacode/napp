@@ -7,71 +7,6 @@ import { TouchableHighlight } from 'react-native';
 
 const deviceWidth = Dimensions.get('window').width
 
-function ThreeColumnVertical(props) {
-    return (
-        <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
-            <Text style={styles.title}>{props.title}</Text>
-            <Text style={styles.body}>{props.body}</Text>
-            <Text style={styles.footer}>{props.footer}</Text>
-        </View>
-    );
-};
-
-function TwoColumnButton(props) {
-    const buttonText = String(props.buttonText);
-    return (
-        <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
-            <Text style={styles.title}>{props.title}</Text>
-            <Text style={styles.body}>{props.body}</Text>
-            <TouchableHighlight
-                style={styles.getStarted}>
-                <Button title={buttonText} color="white"></Button>
-            </TouchableHighlight>
-        </View >
-    );
-};
-
-
-function BentonIconLeft(props) {
-    const bullet1 = props.bullet1
-    const bullet2 = props.bullet2
-
-    return (
-        <View style={{ flexDirection: "column", padding: 30 }}>
-
-            <View style={{ flexDirection: "row", marginBottom: 20 }}>
-                <Image source={require(".././Assets/send_plane_icon.png")} style={{ height: 30, width: 30, marginRight: 20, }} />
-                <Text style={{ fontSize: 17 }}> {bullet1}</Text>
-            </View>
-
-            <View style={{ flexDirection: "row", marginBottom: 20, fontSize: 35 }}>
-                <Image source={require(".././Assets/double_check_icon.png")} style={{ height: 30, width: 30, marginRight: 20 }} />
-                <Text style={{ fontSize: 17 }}> {bullet2}</Text>
-            </View>
-        </View>
-
-    )
-}
-
-function ColumnBentoIconButton(props) {
-    const buttonText = String(props.buttonText);
-    const buttonFunction = props.buttonFunction
-    const bullet1 = props.bullet1
-    const bullet2 = props.bullet2
-
-    return (
-        <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
-            <Text style={[styles.title]}>{props.title}</Text>
-            <Text style={[styles.body]}>{props.body}</Text>
-            <View><BentonIconLeft bullet1={bullet1} bullet2={bullet2}></BentonIconLeft></View>
-            <TouchableHighlight
-                style={[styles.getStarted]}>
-                <Button title={buttonText} color="white" onPress={buttonFunction}></Button>
-            </TouchableHighlight>
-        </View >
-    );
-};
-
 export function CardComponent(props) {
 
     const cardContentStructure = props.cardContentStructure
@@ -120,6 +55,71 @@ export function CardComponent(props) {
                 </View>
             )
     }
+}
+
+function ColumnBentoIconButton(props) {
+    const buttonText = String(props.buttonText);
+    const buttonFunction = props.buttonFunction
+    const bullet1 = props.bullet1
+    const bullet2 = props.bullet2
+
+    return (
+        <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
+            <Text style={[styles.title]}>{props.title}</Text>
+            <Text style={[styles.body]}>{props.body}</Text>
+            <View><BentonIconLeft bullet1={bullet1} bullet2={bullet2}></BentonIconLeft></View>
+            <TouchableHighlight
+                style={[styles.getStarted]}>
+                <Button title={buttonText} color="white" onPress={buttonFunction}></Button>
+            </TouchableHighlight>
+        </View >
+    );
+};
+
+function ThreeColumnVertical(props) {
+    return (
+        <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
+            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.body}>{props.body}</Text>
+            <Text style={styles.footer}>{props.footer}</Text>
+        </View>
+    );
+};
+
+function TwoColumnButton(props) {
+    const buttonText = String(props.buttonText);
+    return (
+        <View style={{ flex: 1, flexDirection: "column", padding: 30 }}>
+            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.body}>{props.body}</Text>
+            <TouchableHighlight
+                style={styles.getStarted}>
+                <Button title={buttonText} color="white"></Button>
+            </TouchableHighlight>
+        </View >
+    );
+};
+
+
+function BentonIconLeft(props) {
+    const bullet1 = props.bullet1
+    const bullet2 = props.bullet2
+
+    return (
+        <View style={{ flexDirection: "column", padding: 30 }}>
+
+            <View style={{ flexDirection: "row", marginBottom: 20 }}>
+                <Image source={require(".././Assets/send_plane_icon.png")} style={{ height: 30, width: 30, marginRight: 20, }} />
+                <Text style={{ fontSize: 17 }}> {bullet1}</Text>
+            </View>
+
+            <View style={{ flexDirection: "row", marginBottom: 20, fontSize: 35 }}>
+                <Image source={require(".././Assets/double_check_icon.png")} style={{ height: 30, width: 30, marginRight: 20 }} />
+                <Text style={{ fontSize: 17 }}> {bullet2}</Text>
+            </View>
+        </View>
+
+    )
 }
 
 const styles = StyleSheet.create({

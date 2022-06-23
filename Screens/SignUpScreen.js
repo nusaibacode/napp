@@ -1,25 +1,91 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { render } from 'react-dom';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { ImageBackground, Dimensions, Button } from 'react-native';
+import { ImageBackground, Dimensions, Button, TextInput } from 'react-native';
 import { CardComponent } from './../Components/CardStructure';
 import { DisplayCard } from './../Components/DisplayCard'
 
 const deviceWidth = Dimensions.get('window').width
 
+
 export default function SignUpScreen({ navigation }) {
+
+    const submitButtonFunction = () => console.log('Submitted!')
+
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Sign up screen</Text>
             <View style={{ marginTop: 60 }}>
+                <SignUpFields></SignUpFields>
+                <Button
+                    title="Submit"
+                    onPress={submitButtonFunction}
+                />
                 <Button
                     title="Back to Opening"
                     onPress={() => navigation.navigate("OpeningScreen")}
                 />
+
             </View>
         </View>
+    );
+}
+
+function SignUpFields() {
+    const [firstName, setFirstName] = useState('First Name')
+    const [lastName, setLastName] = useState('Last Name')
+    const [email, setEmail] = useState('Email')
+
+    return (
+        <View>
+            <FirstNameTextInput
+                style={styles.input}
+                onChangeText={setFirstName}
+                value={firstName}
+            />
+            <LastNameTextInput
+                style={styles.input}
+                onChangeText={setLastName}
+                value={lastName}
+            />
+            <EmailTextInput
+                style={styles.input}
+                onChangeText={setEmail}
+                value={email}
+            />
+        </View>
+    )
+}
+
+function FirstNameTextInput(props) {
+    return (
+        <TextInput
+            {...props}
+            editable
+            maxLength={40}
+        />
+    );
+}
+
+function LastNameTextInput(props) {
+    return (
+        <TextInput
+            {...props}
+            editable
+            maxLength={40}
+        />
+    );
+}
+
+function EmailTextInput(props) {
+    return (
+        <TextInput
+            {...props}
+            editable
+            maxLength={40}
+        />
     );
 }
 
@@ -71,6 +137,11 @@ const styles = StyleSheet.create({
         bottom: 65,
         position: 'absolute',
         height: 550
-    }
-
+    },
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+    },
 });
