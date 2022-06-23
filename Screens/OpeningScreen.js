@@ -15,10 +15,14 @@ const baseURL = APIEndpoint + ".typicode.com"
 export default function OpeningScreen({ navigation }) {
 
     const getStartedButtonFunction = () => navigation.navigate("SignUpScreen")
-
-    axios.get(baseURL + "/todos/1")
-        .then(respone =>
-            console.log(respone.status)
+    // axios.get(baseURL + "/todos/1")
+    axios.get("http://127.0.0.1:5000/")
+        .then(response =>
+            console.log(response.data.name)
+        )
+    axios.post("http://127.0.0.1:5000/", { hi: "hi" })
+        .then(response =>
+            console.log(response.data.name)
         )
 
     return (

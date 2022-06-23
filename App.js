@@ -18,6 +18,7 @@ const deviceWidth = Dimensions.get('window').width
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="OpeningScreen">
