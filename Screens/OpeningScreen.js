@@ -5,14 +5,21 @@ import { render } from 'react-dom';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { ImageBackground, Dimensions, Button } from 'react-native';
 import { CardComponent } from './../Components/CardStructure';
-
-
+import { APIEndpoint } from '../API';
+import axios from 'axios';
 
 const deviceWidth = Dimensions.get('window').width
+const baseURL = APIEndpoint + ".typicode.com"
+
 
 export default function OpeningScreen({ navigation }) {
 
     const getStartedButtonFunction = () => navigation.navigate("SignUpScreen")
+
+    axios.get(baseURL + "/todos/1")
+        .then(respone =>
+            console.log(respone.status)
+        )
 
     return (
         <View style={{ flex: 1 }}>
@@ -27,6 +34,10 @@ export default function OpeningScreen({ navigation }) {
                     buttonFunction={getStartedButtonFunction}
                 >
                 </CardComponent>
+                <View>
+
+                </View>
+
             </ImageBackground>
         </View>
     )

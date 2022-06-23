@@ -14,39 +14,6 @@ import SignUpScreen from './Screens/SignUpScreen'
 
 const deviceWidth = Dimensions.get('window').width
 
-// function OpeningScreen2({ navigation }) {
-
-//   return (
-//     <View style={{ flex: 1 }}>
-//       <ImageBackground style={{ flex: 1 }} source={require("./Assets/gradient_dark_orange_navy.png")}>
-//         <CardComponent
-//           cardContentStructure="Bento"
-//           title="Profile Makeover"
-//           body="Want exciting matches? Need exciting profile."
-//           bullet1="Show us your content"
-//           bullet2="Get your review"
-//           buttonText="Get Started"
-//         >
-//         </CardComponent>
-//         <View style={{ marginTop: 60 }}>
-//           <Button
-//             title="Signup"
-//             onPress={() => navigation.navigate("Sign Up")}
-//           />
-//         </View>
-//       </ImageBackground>
-//     </View>
-//   )
-// }
-
-// function SignUpScreen() {
-//   return (
-//     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//       <Text>Sign up screen</Text>
-//     </View>
-//   );
-// }
-
 
 const Stack = createNativeStackNavigator();
 
