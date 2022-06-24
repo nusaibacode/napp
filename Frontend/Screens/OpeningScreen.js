@@ -20,9 +20,9 @@ export default function OpeningScreen({ navigation }) {
         .then(response =>
             console.log(response.data.name)
         )
-    axios.post("http://127.0.0.1:5000/", { hi: "hi" })
+    axios.post("http://127.0.0.1:5000/signup", { first_name: "charlie", last_name: "rahman", email: "charlie@nusaiba.com" })
         .then(response =>
-            console.log(response.data.name)
+            console.log(response)
         )
 
     return (
