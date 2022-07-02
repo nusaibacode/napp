@@ -93,17 +93,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         height: 550
     },
-    nextButton: {
-        backgroundColor: '#000000',
-        width: '90%',
-        aspectRatio: 5.30 / 1,
-        bottom: 8,
-        borderRadius: 6000,
-        alignSelf: 'center',
-        shadowColor: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
+
 
 
 
