@@ -6,58 +6,78 @@ import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { ImageBackground, Dimensions, Button, TextInput } from 'react-native';
 import { CardComponent } from './../Components/CardStructure';
 import { DisplayCard } from './../Components/DisplayCard'
+import axios from 'axios';
+
 
 const deviceWidth = Dimensions.get('window').width
+const API = "http://127.0.0.1:5000"
 
 
 export default function SignUpScreen({ navigation }) {
-
-    const submitButtonFunction = () => console.log('Submitted!')
-
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Sign up screen</Text>
-            <View style={{ marginTop: 60 }}>
-                <SignUpFields></SignUpFields>
-                <Button
-                    title="Submit"
-                    onPress={submitButtonFunction}
-                />
-                <Button
-                    title="Back to Opening"
-                    onPress={() => navigation.navigate("OpeningScreen")}
-                />
-
-            </View>
-        </View>
-    );
-}
-
-function SignUpFields() {
     const [firstName, setFirstName] = useState('First Name')
     const [lastName, setLastName] = useState('Last Name')
     const [email, setEmail] = useState('Email')
 
+    function submitButtonFunction() {
+        if (ValidateUserSignup(firstName, lastName, email)) {
+            axios.post(API + "/signup", { first_name: firstName, last_name: lastName, email: email })
+                .then(response =>
+                    console.log(response)
+                )
+        }
+    }
+
     return (
-        <View>
-            <FirstNameTextInput
-                style={styles.input}
-                onChangeText={setFirstName}
-                value={firstName}
-            />
-            <LastNameTextInput
-                style={styles.input}
-                onChangeText={setLastName}
-                value={lastName}
-            />
-            <EmailTextInput
-                style={styles.input}
-                onChangeText={setEmail}
-                value={email}
-            />
+        <View style={{ flex: 1 }}>
+            <ImageBackground style={{ flex: 1 }} source={require("./../Assets/gradient_dark_orange_navy.png")}>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                    <Text>Sign up screen</Text>
+                    <View style={{ marginTop: 60 }}>
+                        <View>
+                            <FirstNameTextInput
+                                style={styles.input}
+                                onChangeText={setFirstName}
+                                value={firstName}
+                            />
+                            <LastNameTextInput
+                                style={styles.input}
+                                onChangeText={setLastName}
+                                value={lastName}
+                            />
+                            <EmailTextInput
+                                style={styles.input}
+                                onChangeText={setEmail}
+                                value={email}
+                            />
+                        </View>
+                        {/* <SignUpFields>
+
+                </SignUpFields> */}
+                        <Button
+                            title="Submit"
+                            onPress={submitButtonFunction}
+                        />
+                        <Button
+                            title="Back to Opening"
+                            onPress={() => navigation.navigate("OpeningScreen")}
+                        />
+
+                    </View>
+                </View>
+            </ImageBackground>
         </View>
-    )
+    );
 }
+
+function ValidateUserSignup(first_name, last_name, email) {
+    if (first_name != "First Name" && last_name != "Last Name" && email != "Email") {
+        return true
+    } else {
+        return false
+    }
+
+}
+
 
 function FirstNameTextInput(props) {
     return (

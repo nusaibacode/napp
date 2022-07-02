@@ -11,7 +11,6 @@ import axios from 'axios';
 const deviceWidth = Dimensions.get('window').width
 const baseURL = APIEndpoint + ".typicode.com"
 
-
 export default function OpeningScreen({ navigation }) {
 
     const getStartedButtonFunction = () => navigation.navigate("SignUpScreen")
@@ -20,14 +19,12 @@ export default function OpeningScreen({ navigation }) {
         .then(response =>
             console.log(response.data.name)
         )
-    axios.post("http://127.0.0.1:5000/signup", { first_name: "charlie", last_name: "rahman", email: "charlie@nusaiba.com" })
-        .then(response =>
-            console.log(response)
-        )
 
     return (
         <View style={{ flex: 1 }}>
             <ImageBackground style={{ flex: 1 }} source={require("./../Assets/gradient_dark_orange_navy.png")}>
+                <View style={{ marginTop: "20%" }}></View>
+                <Image source={require("./../Assets/green_flag_logo.png")}></Image>
                 <CardComponent
                     cardContentStructure="Bento"
                     title="Profile Makeover"
@@ -42,8 +39,8 @@ export default function OpeningScreen({ navigation }) {
 
                 </View>
 
-            </ImageBackground>
-        </View>
+            </ImageBackground >
+        </View >
     )
 }
 
@@ -95,6 +92,19 @@ const styles = StyleSheet.create({
         bottom: 65,
         position: 'absolute',
         height: 550
-    }
+    },
+    nextButton: {
+        backgroundColor: '#000000',
+        width: '90%',
+        aspectRatio: 5.30 / 1,
+        bottom: 8,
+        borderRadius: 6000,
+        alignSelf: 'center',
+        shadowColor: '#000000',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+
 
 });

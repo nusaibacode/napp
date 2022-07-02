@@ -69,7 +69,10 @@ function ColumnBentoIconButton(props) {
             <Text style={[styles.body]}>{props.body}</Text>
             <View><BentonIconLeft bullet1={bullet1} bullet2={bullet2}></BentonIconLeft></View>
             <TouchableHighlight
-                style={[styles.getStarted]}>
+                // style={[styles.getStarted]}>
+                style={[styles.nextButton]}>
+
+
                 <Button title={buttonText} color="white" onPress={buttonFunction}></Button>
             </TouchableHighlight>
         </View >
@@ -173,6 +176,17 @@ const styles = StyleSheet.create({
         marginBottom: 0,
         backgroundColor: '#063970',
         borderRadius: 20,
+    },
+    nextButton: {
+        backgroundColor: '#000000',
+        width: '90%',
+        aspectRatio: 5.30 / 1,
+        bottom: 8,
+        borderRadius: 6000,
+        alignSelf: 'center',
+        shadowColor: '#000000',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
 })
